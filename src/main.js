@@ -1,44 +1,16 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {AppFn} from './app-func'
+import CounterClass from './CounterClass'
 
-let alphabetic = [
-  {
-    name: 'A',
-    children: [
-      {
-        name: 'AA',
-        children: null
-      }
-    ]
-  },
-  {
-    name: 'B',
-    children: [
-      {
-        name: 'BB',
-        children: [
-          {
-            name: 'BBB',
-            children: null,
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: 'C',
-    children: null
-  },
-]
 
 render(
   <div className="some">
     <h2>Hello, React</h2>
+    <CounterClass name='Mike' max={4}/>
     <hr/>
     <hr/>
+    <CounterClass name='John' max={6}/>
     <hr/>
     <div>Text</div>
-    <AppFn items={alphabetic}/>
   </div>,
   document.getElementById('app'))
