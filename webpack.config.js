@@ -1,5 +1,6 @@
-let path = require('path'),
- 		HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path'),
+ 			HtmlWebpackPlugin = require('html-webpack-plugin'),
+			{ CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 let conf = {
 	entry: './src/main.js',
@@ -20,7 +21,12 @@ let conf = {
 		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ["@babel/preset-react"],
+					}
+				},
 				exclude: '/node_modules/'
 			}
 		]
@@ -28,7 +34,9 @@ let conf = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./index.html",
-		})
+			title: 'asdadasdasda asd as'
+		}),
+		new CleanWebpackPlugin()
 	],
 };
 
